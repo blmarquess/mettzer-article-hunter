@@ -1,25 +1,30 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { searchDataFromTerm } from './dataFetch'
+import { useSearchQuery } from './services/http'
 
 function App() {
-  const [data, setData] = useState([])
+  const [searchTerm, setSearchTerm] = useState('')
+  const inputS = useRef<HTMLInputElement>(null)
+  const query = useSearchQuery(searchTerm)
 
-  const handleClick = async () => {
-    const { data } = await searchDataFromTerm('python')
-    setData(data)
-    return data
+  const handleClick = () => {
+    setSearchTerm(inputS.current?.value ?? '')
   }
-  console.log(data)
+
+  console.log(query)
   return (
     <div className='App'>
       <header className='App-header'>
         <img src={logo} className='App-logo' alt='logo' />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
+          <label htmlFor='search'>
+            Search
+            <input type='text' id='search' ref={inputS} />
+          </label>
           <button type='button' onClick={handleClick}>
-            Click
+            search
           </button>
         </p>
         <a
