@@ -1,7 +1,8 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
-    es2021: true,
+    es2017: true,
     jest: true,
   },
   extends: [
@@ -10,11 +11,16 @@ module.exports = {
     'standard-with-typescript',
     'prettier',
   ],
-  overrides: [],
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+    },
+  ],
   parserOptions: {
     project: ['./tsconfig.json'],
-    ecmaVersion: 'latest',
+    ecmaVersion: 2017,
     sourceType: 'module',
+    tsconfigRootDir: __dirname,
     jsx: true,
   },
   plugins: ['react', 'react-hooks', '@typescript-eslint', 'prettier'],
