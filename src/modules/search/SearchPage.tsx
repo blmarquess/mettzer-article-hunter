@@ -2,6 +2,7 @@ import { Box, Button, CircularProgress, TextField } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
 import { useRef, useState } from 'react'
 import { useSearchQuery } from 'services/http'
+import { columns } from './configs/dataGridConfigs'
 
 export const SearchPage = () => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -11,14 +12,7 @@ export const SearchPage = () => {
   const handleClick = () => {
     setSearchTerm(inputS.current?.value ?? '')
   }
-  const columns = [
-    { field: 'id', headerName: 'ID', width: 80 },
-    { field: 'title', headerName: 'Titulo', width: 250 },
-    { field: 'authors', headerName: 'Autor', width: 250 },
-    { field: 'type', headerName: 'Tipo', width: 80 },
-    { field: 'description', headerName: 'Descrição', width: 300 },
-    { field: 'urls', headerName: 'URL', width: 230 },
-  ]
+
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', p: 8 }}>
       <TextField type='text' id='search' inputRef={inputS} sx={{ m: 4 }} />
