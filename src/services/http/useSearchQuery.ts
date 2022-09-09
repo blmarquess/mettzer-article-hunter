@@ -15,7 +15,6 @@ export const useSearchQuery = (searchArticle: string) => {
   const { data, isFetching } = useQuery<responseApi>(
     createSearchKey(searchArticle),
     async () => await searchApiV2(searchArticle),
-    { staleTime: 0 },
   )
 
   if (searchArticle === '') {
