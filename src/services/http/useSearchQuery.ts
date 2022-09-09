@@ -1,16 +1,8 @@
 import { QueryKey, useQuery } from '@tanstack/react-query'
+import { article } from 'domain/entities/article'
 import { searchApiV2 } from './httpClient'
 
 const createSearchKey = (key: string): QueryKey => [key]
-
-interface article {
-  id: number
-  title: string
-  authors: string
-  type: string
-  description: string
-  fulltextUrls: string
-}
 
 interface responseApi {
   status: string
