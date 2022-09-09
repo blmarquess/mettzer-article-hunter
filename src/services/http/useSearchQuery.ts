@@ -22,7 +22,7 @@ export const useSearchQuery = (searchArticle: string) => {
     return initialData
   }
 
-  const formatteddata =
+  const formattedData =
     data?.data.map(({ id, authors, title, description, fulltextUrls }: article) => ({
       id,
       title,
@@ -36,7 +36,7 @@ export const useSearchQuery = (searchArticle: string) => {
 
   const resultes = {
     isFetching,
-    data: formatteddata ?? [],
+    data: formattedData ?? [],
     totalRows,
   }
   return resultes
