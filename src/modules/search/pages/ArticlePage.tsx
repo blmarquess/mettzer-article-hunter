@@ -7,7 +7,7 @@ import { useArticleQuery } from '../hooks'
 export const ArticlePage = () => {
   const articleID = useParams<{ id: string }>().id as string
   const { data, isFetching, isError } = useArticleQuery(articleID)
-  const rollBack = () => useNavigate()(-1)
+  const rollBack = useNavigate()
   if (isFetching) {
     return <CircularProgress />
   }
@@ -27,7 +27,6 @@ export const ArticlePage = () => {
       }}>
       <Grid
         sx={{
-          width: '70%',
           p: 4,
           m: 'auto',
           alignItems: 'center',
@@ -44,17 +43,16 @@ export const ArticlePage = () => {
           </Stack>
           <Stack spacing={4}>
             <Typography variant="body2">Ano de publicação: {year}</Typography>
-            <Typography variant="body2">Download do Artigo: {fulltextUrls[0]}</Typography>
             <Typography variant="body2">Autores: {authors}</Typography>
             <Typography variant="body2">Descrição: {description}</Typography>
           </Stack>
           <Button
             variant="contained"
             onClick={() => window.open(fulltextUrls[0], '_blank')}
-            sx={{ mt: 4 }}>
-            Download
+            sx={{ mt: 4, mr: 2 }}>
+            Abrir Artigo
           </Button>
-          <Button variant="contained" onClick={() => rollBack} sx={{ mt: 4 }}>
+          <Button variant="contained" onClick={() => rollBack(-1)} sx={{ mt: 4 }}>
             Voltar
           </Button>
         </Paper>
