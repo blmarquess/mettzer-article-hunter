@@ -7,6 +7,6 @@
   "semi": false,
   "useTabs": false,
   "bracketSameLine": true,
-  "jsxSingleQuote": true,
+  "jsxSingleQuote": false,
   "proseWrap": "preserve"
 }
