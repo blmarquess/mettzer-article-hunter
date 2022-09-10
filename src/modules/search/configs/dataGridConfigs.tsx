@@ -1,6 +1,6 @@
 import { Button, Link } from '@mui/material'
 import { GridRenderCellParams } from '@mui/x-data-grid'
-import { article } from 'domain/entities/article'
+import { article } from 'domain/entities'
 
 export const columns = [
   { field: 'id', headerName: 'ID', width: 150 },

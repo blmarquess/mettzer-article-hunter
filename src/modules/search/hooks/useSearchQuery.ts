@@ -1,5 +1,5 @@
 import { QueryKey, useQuery } from '@tanstack/react-query'
-import { article } from 'domain/entities/article'
+import { article } from 'domain/entities'
 import { searchArticles } from 'services/http'
 
 const createSearchKey = (key: string): QueryKey => [key]
