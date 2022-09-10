@@ -7,7 +7,8 @@ export const useHttpClient = axios.create({
   baseURL: URI,
 })
 
-export const searchArticles = async (str: string) => await useHttpClient.get(`/${str}${API_PARAMS}`)
+export const searchArticles = async (str: string) =>
+  await useHttpClient.get(`/search/${str}${API_PARAMS}`)
 
 export const searchArticleById = async (id: string) =>
   await useHttpClient.get(`/get/${id}${API_PARAMS}`)
