@@ -1,6 +1,7 @@
-import { Button, Link } from '@mui/material'
+import { Button } from '@mui/material'
 import { GridRenderCellParams } from '@mui/x-data-grid'
 import { article } from 'domain/entities'
+import { Link } from 'react-router-dom'
 
 export const columns = [
   { field: 'id', headerName: 'ID', width: 150 },
@@ -13,16 +14,10 @@ export const columns = [
     field: 'Open',
     headerName: 'Open',
     renderCell: (params: GridRenderCellParams<article>) => (
-      <Button component={Link} onClick={() => window.open(`/${params.id as string}`, '_blank')}>
+      <Button component={Link} to={`/article/${params.id as string}`}>
         Open
       </Button>
     ),
-    width: 100,
-  },
-  {
-    field: 'Favoritar',
-    headerName: 'Favoritar',
-    renderCell: () => <Button>Favoritar</Button>,
     width: 100,
   },
 ]
