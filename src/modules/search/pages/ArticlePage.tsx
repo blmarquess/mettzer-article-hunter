@@ -1,7 +1,7 @@
 import { Box, Button, CircularProgress, Grid, Paper, Stack, Typography } from '@mui/material'
-import { Star as Favorite, StarBorder as Unfavorite } from '@mui/icons-material'
 import { article } from 'domain/entities'
 import { useNavigate, useParams } from 'react-router-dom'
+import { IsFavorite } from '../components/IsFavorite'
 import { useArticleQuery } from '../hooks'
 
 export const ArticlePage = () => {
@@ -14,30 +14,15 @@ export const ArticlePage = () => {
   if (isError) {
     return <Typography variant="h1">Error</Typography>
   }
-  const { title, publisher, year, fulltextUrls, authors, description } = data as article
+  const { id, title, publisher, year, fulltextUrls, authors, description } = data as article
   return (
-    <Box
-      sx={{
-        width: '80%',
-        p: 4,
-        m: 'auto',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}>
-      <Grid
-        sx={{
-          p: 4,
-          m: 'auto',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
+    <Box sx={{ p: 4, m: 'auto', width: '80%' }}>
+      <Grid sx={{ p: 4, m: 'auto' }}>
         <Paper sx={{ p: 4 }}>
           <Stack spacing={2}>
-            <Box>
+            <Box sx={{ display: 'flex' }}>
               <Typography variant="h5">{title}</Typography>
-              <Favorite />
-              <Unfavorite />
+              <IsFavorite id={`${id}`} />
             </Box>
             <Typography variant="body1">Publisher: {publisher}</Typography>
           </Stack>
