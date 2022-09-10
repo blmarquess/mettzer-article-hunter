@@ -4,15 +4,10 @@ import { searchApiV2 } from './httpClient'
 
 const createSearchKey = (key: string): QueryKey => [key]
 
-interface responseApi {
-  status: string
-  totalHits: number
-  data: article[]
-}
 const initialData = { isFetching: false, data: [], totalRows: 0 }
 
 export const useSearchQuery = (searchArticle: string) => {
-  const { data, isFetching } = useQuery<responseApi>(
+  const { data, isFetching } = useQuery(
     createSearchKey(searchArticle),
     async () => await searchApiV2(searchArticle),
   )
@@ -22,7 +17,7 @@ export const useSearchQuery = (searchArticle: string) => {
   }
 
   const formattedData =
-    data?.data.map(({ id, authors, title, description, fulltextUrls }: article) => ({
+    data?.data.data.map(({ id, authors, title, description, fulltextUrls }: article) => ({
       id,
       title,
       authors,
@@ -31,12 +26,12 @@ export const useSearchQuery = (searchArticle: string) => {
       urls: fulltextUrls,
     })) ?? []
 
-  const totalRows = data?.totalHits ?? 0
+  const totalRows = data?.data.totalHits ?? 0
 
   const resultes = {
     isFetching,
     data: formattedData ?? [],
-    totalRows,
+    totalRows: totalRows > 100 ? 100 : totalRows,
   }
   return resultes
 }

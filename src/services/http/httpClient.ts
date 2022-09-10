@@ -7,7 +7,4 @@ export const useHttpClient = axios.create({
   baseURL: URI,
 })
 
-export async function searchApiV2(str: string) {
-  const { data } = await useHttpClient.get(`/${str}${API_PARAMS}`)
-  return data
-}
+export const searchApiV2 = async (str: string) => await useHttpClient.get(`/${str}${API_PARAMS}`)
