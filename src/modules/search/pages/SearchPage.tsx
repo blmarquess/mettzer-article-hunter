@@ -1,8 +1,8 @@
 import { Box, Button, CircularProgress, TextField } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
 import { useRef, useState } from 'react'
-import { useSearchQuery } from 'services/http'
-import { columns } from './configs/dataGridConfigs'
+import { useSearchQuery } from '../hooks'
+import { columns } from '../configs'
 
 export const SearchPage = () => {
   const [searchTerm, setSearchTerm] = useState('')

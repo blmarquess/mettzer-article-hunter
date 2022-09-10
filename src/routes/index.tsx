@@ -1,5 +1,5 @@
 import NotFound from 'modules/NotFound'
-import { SearchPage } from 'modules/search/SearchPage'
+import { SearchPage } from 'modules/search/pages'
 
 export const AppRoutes = [
   {
