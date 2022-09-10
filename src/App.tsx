@@ -11,3 +11,4 @@ export default function App() {
     </>
   )
 }
+// TODO [FEATURE]: Add a style to the app

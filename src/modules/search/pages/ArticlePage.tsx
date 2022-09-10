@@ -50,3 +50,4 @@ export const ArticlePage = () => {
     </Box>
   )
 }
+// FIXME: [BUG]: No rerender after remove or add favorites
