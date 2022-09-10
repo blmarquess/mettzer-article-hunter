@@ -35,3 +35,28 @@
 //     }
 //   }
 // }
+
+Cypress.Commands.add('MockRequest', () => {
+  cy.intercept('GET', 'https://core.ac.uk/**', {
+    status: 404,
+    body: [],
+  }).as('MockRequest')
+})
+
+Cypress.Commands.add('MockSearch', () => {
+  cy.fixture('searchResult').then(function (searchResult) {
+    cy.intercept('GET', 'https://core.ac.uk/**', {
+      status: 200,
+      body: searchResult,
+    }).as('MockSearch')
+  })
+})
+
+Cypress.Commands.add('MockArticle', () => {
+  cy.fixture('articleResult').then(function (articleResult) {
+    cy.intercept('GET', 'https://core.ac.uk/**', {
+      status: 200,
+      body: articleResult,
+    }).as('MockArticle')
+  })
+})
