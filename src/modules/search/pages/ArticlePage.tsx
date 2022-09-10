@@ -9,14 +9,19 @@ export const ArticlePage = () => {
   const { data, isFetching, isError } = useArticleQuery(articleID)
   const rollBack = useNavigate()
   if (isFetching) {
-    return <CircularProgress />
+    return (
+      <Box
+        sx={{ display: 'flex', height: '100vh', justifyContent: 'center', alignItems: 'center' }}>
+        <CircularProgress />
+      </Box>
+    )
   }
   if (isError) {
     return <Typography variant="h1">Error</Typography>
   }
   const { title, publisher, year, fulltextUrls, authors, description } = data as article
   return (
-    <Box sx={{ p: 4, m: 'auto', width: '80%' }}>
+    <Box sx={{ p: 4, m: 'auto' }}>
       <Grid sx={{ p: 4, m: 'auto' }}>
         <Paper sx={{ p: 4 }}>
           <Stack spacing={2}>

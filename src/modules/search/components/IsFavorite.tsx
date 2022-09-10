@@ -5,15 +5,17 @@ import { addFavorite, checkFavorite, removeFavorite } from 'services/repository/
 
 export const IsFavorite = (props: article) => {
   const isFavorite = checkFavorite(props.id)
+  const handleRemoveFavorite = () => removeFavorite(props.id)
+  const handleAddFavorite = () => addFavorite(props)
   if (isFavorite) {
     return (
-      <Button onClick={() => removeFavorite(props.id)}>
+      <Button onClick={handleRemoveFavorite}>
         <Favorite sx={{ color: 'yellow', height: 32, width: 32 }} stroke={'black'} />
       </Button>
     )
   }
   return (
-    <Button onClick={() => addFavorite(props)} variant="text">
+    <Button onClick={handleAddFavorite} variant="text">
       <Unfavorite sx={{ height: 32, width: 32 }} />
     </Button>
   )

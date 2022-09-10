@@ -1,3 +1,4 @@
+import { ListFavorites } from 'modules/favorite/pages'
 import NotFound from 'modules/NotFound'
 import { ArticlePage, SearchPage } from 'modules/search/pages'
 
@@ -16,6 +17,6 @@ export const AppRoutes = [
   },
   {
     path: '/favorites',
-    element: <h1>Favorites</h1>,
+    element: <ListFavorites />,
   },
 ]
