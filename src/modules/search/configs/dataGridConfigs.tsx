@@ -1,11 +1,9 @@
-import { Button } from '@mui/material'
+import { Button, Link } from '@mui/material'
 import { GridRenderCellParams } from '@mui/x-data-grid'
 import { article } from 'domain/entities/article'
 
-const NOT_URL = '#'
-
 export const columns = [
-  { field: 'id', headerName: 'ID', width: 80 },
+  { field: 'id', headerName: 'ID', width: 150 },
   { field: 'title', headerName: 'Titulo', width: 250 },
   { field: 'authors', headerName: 'Autor', width: 250 },
   { field: 'type', headerName: 'Tipo', width: 80 },
@@ -14,15 +12,11 @@ export const columns = [
   {
     field: 'Open',
     headerName: 'Open',
-    renderCell: (params: GridRenderCellParams<article>) => {
-      console.log(params)
-      return (
-        <Button
-          onClick={() => window.open(`${(params.row?.urls[1] as string) ?? NOT_URL}`, '_blank')}>
-          Open
-        </Button>
-      )
-    },
+    renderCell: (params: GridRenderCellParams<article>) => (
+      <Button component={Link} onClick={() => window.open(`/${params.id as string}`, '_blank')}>
+        Open
+      </Button>
+    ),
     width: 100,
   },
   {
