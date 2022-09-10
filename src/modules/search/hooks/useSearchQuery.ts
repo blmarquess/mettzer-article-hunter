@@ -1,6 +1,6 @@
 import { QueryKey, useQuery } from '@tanstack/react-query'
 import { article } from 'domain/entities/article'
-import { searchApiV2 } from './httpClient'
+import { searchArticles } from 'services/http'
 
 const createSearchKey = (key: string): QueryKey => [key]
 
@@ -9,7 +9,7 @@ const initialData = { isFetching: false, data: [], totalRows: 0 }
 export const useSearchQuery = (searchArticle: string) => {
   const { data, isFetching } = useQuery(
     createSearchKey(searchArticle),
-    async () => await searchApiV2(searchArticle),
+    async () => await searchArticles(searchArticle),
   )
 
   if (searchArticle === '') {
