@@ -6,4 +6,6 @@ export interface article {
   description: string
   urls: string
   fulltextUrls: string | string[]
+  year: number
+  publisher: string
 }
