@@ -3,6 +3,7 @@ import { DataGrid } from '@mui/x-data-grid'
 import { useRef, useState } from 'react'
 import { useSearchQuery } from '../hooks'
 import { columns } from '../configs'
+import { Link } from 'react-router-dom'
 
 export const SearchPage = () => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -14,15 +15,15 @@ export const SearchPage = () => {
   }
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', p: 8 }}>
-      <TextField type="text" id="search" inputRef={inputS} sx={{ m: 4 }} />
-      <Button
-        type="button"
-        variant="contained"
-        size="small"
-        onClick={handleClick}
-        sx={{ m: 2, p: 2 }}>
-        {isFetching ? <CircularProgress size={20} color="inherit" /> : 'search'}
-      </Button>
+      <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', mb: 2 }}>
+        <TextField type="text" label="Termo da pesquisa" inputRef={inputS} sx={{ m: 4 }} />
+        <Button type="button" variant="contained" onClick={handleClick} sx={{ m: 2, p: 2 }}>
+          {isFetching ? <CircularProgress size={20} color="inherit" /> : 'search'}
+        </Button>
+        <Button component={Link} to="/favorites" variant="outlined" sx={{ m: 2, p: 2 }}>
+          Favoritos
+        </Button>
+      </Box>
       <Box sx={{ height: '100%', width: '100%' }}>
         {Boolean(data) && (
           <Box sx={{ display: 'flex', flexDirection: 'column', height: '80vh', width: '100%' }}>

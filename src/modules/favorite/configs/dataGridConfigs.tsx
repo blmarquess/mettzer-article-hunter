@@ -2,7 +2,7 @@ import { Button } from '@mui/material'
 import { GridRenderCellParams } from '@mui/x-data-grid'
 import { article } from 'domain/entities'
 import { Link } from 'react-router-dom'
-import { IsFavorite } from '../components/IsFavorite'
+import { removeFavorite } from 'services/repository/localStorage'
 
 export const columns = [
   { field: 'id', headerName: 'ID', width: 150 },
@@ -24,7 +24,11 @@ export const columns = [
   {
     field: 'favorite',
     headerName: 'Favoritos',
-    renderCell: (params: GridRenderCellParams<article>) => <IsFavorite {...params.row} />,
+    renderCell: (params: GridRenderCellParams<article>) => (
+      <Button component="button" onClick={() => removeFavorite(Number(params.row.id))}>
+        Remover
+      </Button>
+    ),
     width: 100,
   },
 ]
