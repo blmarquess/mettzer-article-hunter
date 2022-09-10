@@ -1,5 +1,5 @@
 import NotFound from 'modules/NotFound'
-import { SearchPage } from 'modules/search/pages'
+import { ArticlePage, SearchPage } from 'modules/search/pages'
 
 export const AppRoutes = [
   {
@@ -12,7 +12,7 @@ export const AppRoutes = [
   },
   {
     path: 'article/:id',
-    element: <h1>ID Search</h1>,
+    element: <ArticlePage />,
   },
   {
     path: '/favorites',
