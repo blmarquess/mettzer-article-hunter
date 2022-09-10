@@ -14,7 +14,7 @@ export const ArticlePage = () => {
   if (isError) {
     return <Typography variant="h1">Error</Typography>
   }
-  const { id, title, publisher, year, fulltextUrls, authors, description } = data as article
+  const { title, publisher, year, fulltextUrls, authors, description } = data as article
   return (
     <Box sx={{ p: 4, m: 'auto', width: '80%' }}>
       <Grid sx={{ p: 4, m: 'auto' }}>
@@ -22,7 +22,7 @@ export const ArticlePage = () => {
           <Stack spacing={2}>
             <Box sx={{ display: 'flex' }}>
               <Typography variant="h5">{title}</Typography>
-              <IsFavorite id={`${id}`} />
+              <IsFavorite {...(data as article)} />
             </Box>
             <Typography variant="body1">Publisher: {publisher}</Typography>
           </Stack>
