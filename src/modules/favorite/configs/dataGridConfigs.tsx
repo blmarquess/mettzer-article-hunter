@@ -25,7 +25,10 @@ export const columns = [
     field: 'favorite',
     headerName: 'Favoritos',
     renderCell: (params: GridRenderCellParams<article>) => (
-      <Button component="button" onClick={() => removeFavorite(Number(params.row.id))}>
+      <Button
+        component="button"
+        onClick={() => removeFavorite(Number(params.row.id))}
+        data-testid={`remove-favorite-${params.row.id as string}`}>
         Remover
       </Button>
     ),
