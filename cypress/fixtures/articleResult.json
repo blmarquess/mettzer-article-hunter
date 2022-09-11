@@ -1,0 +1,54 @@
+{
+  "status": "OK",
+  "data": {
+    "id": "214038959",
+    "authors": ["Rust & Joiner"],
+    "contributors": [],
+    "datePublished": "1898-09-23T00:00:00",
+    "description": "Weekly newspaper from Caldwell, Texas that includes local, state and national news along with advertising",
+    "identifiers": ["info:ark/67531/metapth169208", null],
+    "publisher": "Rust & Joiner",
+    "relations": [],
+    "repositories": [
+      {
+        "id": "1897",
+        "openDoarId": 0,
+        "name": "Portal to Texas History",
+        "urlHomepage": null,
+        "urlOaipmh": null,
+        "uriJournals": null,
+        "physicalName": "noname",
+        "source": null,
+        "software": null,
+        "metadataFormat": null,
+        "description": null,
+        "journal": null,
+        "roarId": 0,
+        "baseId": 0,
+        "pdfStatus": null,
+        "nrUpdates": 0,
+        "disabled": false,
+        "lastUpdateTime": null,
+        "repositoryLocation": null
+      }
+    ],
+    "repositoryDocument": {
+      "pdfStatus": 0,
+      "metadataAdded": 1562675951000,
+      "metadataUpdated": 1639361610000,
+      "depositedDate": 1312558266000
+    },
+    "subjects": ["Newspaper"],
+    "title": "The Caldwell News-Chronicle",
+    "topics": [
+      "Caldwell (Tex.) -- Newspapers.",
+      "Business, Economics and Finance - Communications - Newspapers",
+      "Business, Economics and Finance - Journalism",
+      "Business, Economics and Finance - Advertising",
+      "Places - United States - Texas - Burleson County"
+    ],
+    "types": [],
+    "year": 1898,
+    "downloadUrl": ""
+  }
+}

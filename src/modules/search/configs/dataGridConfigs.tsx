@@ -15,7 +15,10 @@ export const columns = [
     field: 'view',
     headerName: 'Visualizar',
     renderCell: (params: GridRenderCellParams<article>) => (
-      <Button component={Link} to={`/article/${params.id as string}`}>
+      <Button
+        component={Link}
+        to={`/article/${params.id as string}`}
+        data-testid={`article-${params.id}`}>
         visualizar
       </Button>
     ),

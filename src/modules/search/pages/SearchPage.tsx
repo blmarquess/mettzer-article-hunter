@@ -16,12 +16,18 @@ export const SearchPage = () => {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', p: 8 }}>
       <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', mb: 2 }}>
-        <TextField type="text" label="Termo da pesquisa" inputRef={inputS} sx={{ m: 4 }} />
+        <TextField
+          type="text"
+          label="Termo da pesquisa"
+          data-testid="search-input"
+          inputRef={inputS}
+          sx={{ m: 4 }}
+        />
         <Button type="button" variant="contained" onClick={handleClick} sx={{ m: 2, p: 2 }}>
           {isFetching ? <CircularProgress size={20} color="inherit" /> : 'search'}
         </Button>
         <Button component={Link} to="/favorites" variant="outlined" sx={{ m: 2, p: 2 }}>
-          Favoritos
+          favoritos
         </Button>
       </Box>
       <Box sx={{ height: '100%', width: '100%' }}>
@@ -33,8 +39,9 @@ export const SearchPage = () => {
               columns={columns}
               rowsPerPageOptions={[10, 20, 50]}
               pageSize={pageSize}
-              rowCount={Math.round(totalRows / pageSize)}
+              rowCount={totalRows}
               pagination
+              paginationMode="server"
               onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
             />
           </Box>
