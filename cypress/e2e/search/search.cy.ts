@@ -1,4 +1,3 @@
-import path from 'path'
 import { getButtonFavorite, getButtonRemoveFavorite, getButtonUnfavorite } from '../../po/favorite'
 import {
   getButtonSearch,
@@ -6,6 +5,7 @@ import {
   getInputSearch,
   getButtonViewArticle,
 } from '../../po/search'
+import { article } from '../../../src/domain/entities'
 
 describe('Search/list and open article', () => {
   const SUT = () => {
@@ -55,7 +55,7 @@ describe('Search/list and open article', () => {
         )
       })
     })
-    it.only('unmarked one to favorite', () => {
+    it('unmarked one to favorite', () => {
       SUT()
       cy.fixture('articleResult').then((articleResult) => {
         getButtonUnfavorite(articleResult.data.id).click()
@@ -76,7 +76,14 @@ describe('Search/list and open article', () => {
       })
     })
     it('should all marked to favorite has in list on page favorites', () => {
-      fail()
+      SUT()
+      cy.fixture('searchResult').then((searchResult) => {
+        const idsArticles = searchResult.data.map(({ id }) => id) as article[]
+        idsArticles.forEach((art) => getButtonUnfavorite(art).click())
+        getButtonFavorites().click()
+        cy.location('pathname').should('eq', '/favorites')
+        cy.get('[data-field="id"]').should('have.length', 4)
+      })
     })
   })
 })
