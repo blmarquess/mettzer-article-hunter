@@ -45,7 +45,9 @@ Entre na pasta do projeto e altere o nome do arquivo env.example para .env
 e adicione uma chave válida da api Core que você pode conseguir nesse [link](https://core.ac.uk/services/api/).
 
 após incluir a chave de acesso da api no arquivo .env
+
 ![exemplo do arquivo .env](public_imgs/Captura%20de%20Tela%202022-09-11%20%C3%A0s%2000.04.22.png)
+
 utilize o yarn de preferência para iniciar e executar os testes da aplicação
 para iniciar a aplicação primeiro faça a instalação das dependências com o comando :
 
