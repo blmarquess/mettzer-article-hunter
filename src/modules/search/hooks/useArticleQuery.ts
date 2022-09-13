@@ -15,12 +15,9 @@ export const useArticleQuery = (id: string): ArticleResponse => {
     createSearchKey(id),
     async () => await searchArticleById(id),
   )
-
-  if (data?.status !== 200) {
+  if (data?.status !== 'OK') {
     return { data, isFetching, isError }
   }
-
-  const { data: article } = data.data
-
+  const { data: article } = data
   return { data: article, isFetching, isError }
 }

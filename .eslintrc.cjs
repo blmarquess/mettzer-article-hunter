@@ -32,6 +32,7 @@ module.exports = {
     'no-duplicate-imports': 'error',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-misused-promises': 'off',
+    '@typescript-eslint/strict-boolean-expressions': 'off',
   },
   ignorePatterns: ['.eslintrc.js'],
 }
