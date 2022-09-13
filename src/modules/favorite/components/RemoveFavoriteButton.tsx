@@ -9,7 +9,7 @@ export const RemoveFavoriteButton = (props: article) => {
     <Button
       onClick={() => removeFromFavorites(props)}
       variant="text"
-      data-testid={`unfavorite-${props.id}`}>
+      data-testid={`remove-favorite-${props.id}`}>
       Remover
     </Button>
   )
