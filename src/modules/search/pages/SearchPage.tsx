@@ -30,9 +30,9 @@ export const SearchPage = () => {
           favoritos
         </Button>
       </Box>
-      <Box sx={{ height: '100%', width: '100%' }}>
+      <Box sx={{ height: '75vh', width: '100%' }}>
         {Boolean(data) && (
-          <Box sx={{ display: 'flex', flexDirection: 'column', height: '80vh', width: '100%' }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%', width: '100%' }}>
             <DataGrid
               loading={isFetching}
               rows={data}
