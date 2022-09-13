@@ -1,15 +1,26 @@
 import axios from 'axios'
-
-const URI = process.env.REACT_APP_ENDPOINT
-const API_PARAMS = process.env.REACT_APP_API_PARAMS as string
-const API_KEY = process.env.REACT_APP_API_KEY as string
+import { URI, API_KEY } from './variables'
 
 export const useHttpClient = axios.create({
   baseURL: URI,
 })
 
-export const searchArticles = async (str: string) =>
-  await useHttpClient.get(`/search/${str}${API_PARAMS}${API_KEY}`)
+export const searchArticles = async (str: string, page: number) => {
+  try {
+    const { data } = await useHttpClient.get(
+      `/search/${str}?page=${page}&pageSize=30&apiKey=${API_KEY}`,
+    )
+    return data
+  } catch (err) {
+    console.log(err)
+  }
+}
 
-export const searchArticleById = async (id: string) =>
-  await useHttpClient.get(`/get/${id}${API_PARAMS}${API_KEY}`)
+export const searchArticleById = async (id: string) => {
+  try {
+    const { data } = await useHttpClient.get(`/get/${id}?apiKey=${API_KEY}`)
+    return data
+  } catch (err) {
+    console.log(err)
+  }
+}
