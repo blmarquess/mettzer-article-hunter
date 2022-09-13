@@ -1,5 +1,5 @@
 import { article } from 'domain/entities'
-import { createContext, PropsWithChildren, useEffect, useState } from 'react'
+import { createContext, PropsWithChildren, useCallback, useEffect, useState } from 'react'
 import { readDataLS, saveDataLS } from 'services/repository/localStorage'
 
 export interface FavoritesContextType {
@@ -14,27 +14,36 @@ export const FavoritesContext = createContext<FavoritesContextType | null>(null)
 export const FavoriteProvider = ({ children }: PropsWithChildren) => {
   const [favorites, setFavorites] = useState<article[]>([])
 
-  const hasFavorite = (article: article) => {
-    const has = favorites.some((fav) => Number(fav.id) === Number(article.id))
-    return has
-  }
+  const hasFavorite = useCallback(
+    (article: article) => {
+      const has = favorites.some((fav) => Number(fav.id) === Number(article.id))
+      return has
+    },
+    [favorites],
+  )
 
-  const addToFavorites = (article: article) => {
-    if (hasFavorite(article)) {
-      return
-    }
-    const newFavorites = [...favorites, article]
-    setFavorites(newFavorites)
-    saveDataLS(newFavorites)
-  }
-
-  const removeFromFavorites = (favorite: article) => {
-    if (hasFavorite(favorite)) {
-      const newFavorites = favorites.filter((fav) => fav.id !== favorite.id)
+  const addToFavorites = useCallback(
+    (article: article) => {
+      if (hasFavorite(article)) {
+        return
+      }
+      const newFavorites = [...favorites, article]
       setFavorites(newFavorites)
       saveDataLS(newFavorites)
-    }
-  }
+    },
+    [favorites, hasFavorite],
+  )
+
+  const removeFromFavorites = useCallback(
+    (favorite: article) => {
+      if (hasFavorite(favorite)) {
+        const newFavorites = favorites.filter((fav) => fav.id !== favorite.id)
+        setFavorites(newFavorites)
+        saveDataLS(newFavorites)
+      }
+    },
+    [favorites, hasFavorite],
+  )
 
   useEffect(() => {
     const favoritesLS = readDataLS()

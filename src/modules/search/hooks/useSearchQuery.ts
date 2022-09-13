@@ -5,11 +5,11 @@ import { searchArticles } from 'services/http'
 
 const createSearchKey = (key: string, page = 0): QueryKey => [key, page]
 
-export const useSearchQuery = (searchArticle: string) => {
+export const useSearchQuery = (searchArticle: string, pageSize: number) => {
   const [page, setPage] = useState(1)
   const { data, isFetching, isError } = useQuery(
     createSearchKey(searchArticle, page),
-    async () => await searchArticles(searchArticle, page),
+    async () => await searchArticles(searchArticle, page, pageSize),
   )
 
   const formattedData = data?.data

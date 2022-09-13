@@ -5,10 +5,10 @@ export const useHttpClient = axios.create({
   baseURL: URI,
 })
 
-export const searchArticles = async (str: string, page: number) => {
+export const searchArticles = async (str: string, page: number, pageSize: number) => {
   try {
     const { data } = await useHttpClient.get(
-      `/search/${str}?page=${page}&pageSize=30&apiKey=${API_KEY}`,
+      `/search/${str}?page=${page}&pageSize=${pageSize}&apiKey=${API_KEY}`,
     )
     return data
   } catch (err) {

@@ -9,7 +9,7 @@ export const SearchPage = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [pageSize, setPageSize] = useState(20)
   const inputS = useRef<HTMLInputElement>(null)
-  const { data, totalRows, isFetching, page, setPage } = useSearchQuery(searchTerm)
+  const { data, totalRows, isFetching, page, setPage } = useSearchQuery(searchTerm, pageSize)
   const handleClick = () => {
     setSearchTerm(inputS.current?.value as string)
   }
@@ -43,7 +43,7 @@ export const SearchPage = () => {
               page={page - 1}
               pagination
               paginationMode="server"
-              onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+              onPageSizeChange={(newPageSize) => setPageSize(() => newPageSize)}
               onPageChange={(newPage) => setPage(newPage + 1)}
             />
           </Box>
