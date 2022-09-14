@@ -1,15 +1,17 @@
-import { CssBaseline } from '@mui/material'
+import { CssBaseline, ThemeProvider } from '@mui/material'
 import { FavoriteProvider } from 'context/Favorites'
 import { useRoutes } from 'react-router-dom'
 import { AppRoutes } from 'routes'
+import { lightTheme } from 'shared/styles/lightTheme'
 
 export default function App() {
   const appRouter = useRoutes(AppRoutes)
   return (
     <FavoriteProvider>
-      <CssBaseline />
-      {appRouter}
+      <ThemeProvider theme={lightTheme}>
+        <CssBaseline />
+        {appRouter}
+      </ThemeProvider>
     </FavoriteProvider>
   )
 }
-// TODO [FEATURE]: Add a style to the app
