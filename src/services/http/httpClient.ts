@@ -8,7 +8,7 @@ export const useHttpClient = axios.create({
 export const searchArticles = async (str: string, page: number, pageSize: number) => {
   try {
     const { data } = await useHttpClient.get(
-      `/search/${str}?page=${page}&pageSize=${pageSize}&apiKey=${API_KEY}`,
+      `/search/${str}?page=${page}&pageSize=${pageSize}&apiKey=${API_KEY}&urls=true`,
     )
     return data
   } catch (err) {
@@ -18,7 +18,7 @@ export const searchArticles = async (str: string, page: number, pageSize: number
 
 export const searchArticleById = async (id: string) => {
   try {
-    const { data } = await useHttpClient.get(`/get/${id}?apiKey=${API_KEY}`)
+    const { data } = await useHttpClient.get(`/get/${id}?apiKey=${API_KEY}&urls=true`)
     return data
   } catch (err) {
     console.log(err)
