@@ -1,4 +1,5 @@
 import { Box, Button, CircularProgress, Grid, Paper, Stack, Typography } from '@mui/material'
+import { grey } from '@mui/material/colors'
 import { article } from 'domain/entities'
 import { useNavigate, useParams } from 'react-router-dom'
 import { IsFavorite } from '../components/IsFavorite'
@@ -21,20 +22,20 @@ export const ArticlePage = () => {
   }
   const { title, publisher, year, fulltextUrls, authors, description } = data as article
   return (
-    <Box sx={{ p: 4, m: 'auto' }}>
+    <Box sx={{ p: 4, m: 'auto', bgcolor: grey[200], height: '100vh' }}>
       <Grid sx={{ p: 4, m: 'auto' }}>
         <Paper sx={{ p: 4 }}>
           <Stack spacing={2}>
             <Box sx={{ display: 'flex' }}>
-              <Typography variant="h5">{title}</Typography>
+              <Typography variant="h4">{title}</Typography>
               <IsFavorite {...(data as article)} />
             </Box>
             <Typography variant="body1">Publisher: {publisher}</Typography>
           </Stack>
-          <Stack spacing={4}>
-            <Typography variant="body2">Ano de publicação: {year}</Typography>
-            <Typography variant="body2">Autores: {authors}</Typography>
-            <Typography variant="body2">Descrição: {description}</Typography>
+          <Stack spacing={2}>
+            <Typography variant="body1">Ano de publicação: {year}</Typography>
+            <Typography variant="body1">Autores: {authors}</Typography>
+            <Typography variant="body1">Descrição: {description}</Typography>
           </Stack>
           <Button
             variant="contained"

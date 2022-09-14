@@ -30,23 +30,22 @@ export const SearchPage = () => {
           favoritos
         </Button>
       </Box>
-      <Box sx={{ height: '75vh', width: '100%' }}>
+      <Box sx={{ height: '75vh', width: '100%', px: 8 }}>
         {Boolean(data) && (
-          <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%', width: '100%' }}>
-            <DataGrid
-              loading={isFetching}
-              rows={data}
-              columns={columns}
-              rowsPerPageOptions={[10, 20, 50]}
-              pageSize={pageSize}
-              rowCount={totalRows}
-              page={page - 1}
-              pagination
-              paginationMode="server"
-              onPageSizeChange={(newPageSize) => setPageSize(() => newPageSize)}
-              onPageChange={(newPage) => setPage(newPage + 1)}
-            />
-          </Box>
+          <DataGrid
+            sx={{ height: '100%', width: '100%' }}
+            loading={isFetching}
+            rows={data}
+            columns={columns}
+            rowsPerPageOptions={[10, 20, 50]}
+            pageSize={pageSize}
+            rowCount={totalRows}
+            page={page - 1}
+            pagination
+            paginationMode="server"
+            onPageSizeChange={(newPageSize) => setPageSize(() => newPageSize)}
+            onPageChange={(newPage) => setPage(newPage + 1)}
+          />
         )}
       </Box>
     </Box>

@@ -8,10 +8,8 @@ export const IsFavorite = (props: article) => {
   const { hasFavorite, addToFavorites, removeFromFavorites } = useContext(
     FavoritesContext,
   ) as FavoritesContextType
-
   const handleRemoveFavorite = useCallback(() => removeFromFavorites(props), [hasFavorite])
   const handleAddFavorite = useCallback(() => addToFavorites(props), [hasFavorite])
-
   if (hasFavorite(props)) {
     return (
       <Button onClick={handleRemoveFavorite} data-testid={`favorite-${props.id}`}>
