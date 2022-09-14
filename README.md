@@ -68,3 +68,9 @@ yarn cy:open
 ```
 
 ![Imagem dos testes da aplicação](public_imgs/Captura%20de%20Tela%202022-09-11%20%C3%A0s%2000.24.33.png)
+
+![Imagem da aplicação na tela de pesquisar artigos](public_imgs/Captura%20de%20Tela%202022-09-14%20%C3%A0s%2001.00.19.png)
+
+![Imagem da tela de detalhes do artigo](public_imgs/Captura%20de%20Tela%202022-09-14%20%C3%A0s%2001.12.22.png)
+
+![Imagem da lista de favoritos](public_imgs/Captura%20de%20Tela%202022-09-14%20%C3%A0s%2014.21.12.png)
