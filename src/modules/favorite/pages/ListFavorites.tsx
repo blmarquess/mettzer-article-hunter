@@ -10,8 +10,8 @@ export const ListFavorites = () => {
   const [pageSize, setPageSize] = useState(20)
   const { favorites } = useContext(FavoritesContext) as FavoritesContextType
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', height: '90vh', px: 8, width: '100%' }}>
-      <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', my: 6 }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', height: '90vh', mb: 4, p: 8 }}>
+      <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', my: 4, pt: 2 }}>
         <Button component={Link} to="/" variant="outlined" sx={{ p: 2 }}>
           Voltar para a pesquisa
         </Button>
